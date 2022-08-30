@@ -1,4 +1,3 @@
-using TDS.Assets.Scripts.Game.Objects;
 using TDS.Assets.Scripts.Game.Player;
 using UnityEngine;
 
@@ -23,7 +22,6 @@ namespace TDS.Assets.Scripts.Game.Zombie
             {
                 Statistics.Instance.IncrementLifeZombieLife(-1);
                 Destroy(col.gameObject);
-                
             }
         }
 

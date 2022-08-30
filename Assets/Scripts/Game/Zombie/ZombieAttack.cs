@@ -17,16 +17,16 @@ namespace TDS.Assets.Scripts.Zombie
 
         private void Start()
         {
-            if (Statistics.Instance.LifeNumberZombie <= 0)
-            {
-                return;
-            }
-            
             InvokeRepeating("Shoot", 0f, _timeBetweenSeries);
         }
 
         private void Shoot()
         {
+            if (Statistics.Instance.LifeNumberZombie <= 0)
+            {
+                return;
+            }
+
             StartCoroutine(ShootCoroutine());
             _zombieAnimation.ZombieShoot();
         }

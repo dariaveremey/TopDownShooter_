@@ -5,7 +5,7 @@ namespace TDS.Assets.Scripts.Game.Player
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private PlayerAnimation _playerAnimation;
-        
+
         [SerializeField] private float _speed = 4f;
         private Transform _cachedTransform;
         private Camera _mainCamera;
@@ -20,11 +20,21 @@ namespace TDS.Assets.Scripts.Game.Player
         {
             if (Statistics.Instance.LifeNumber <= 0)
             {
-                return; 
+                return;
             }
-            
+
             Move();
             Rotate();
+        }
+
+        private void OnCollisionEnter2D(Collision2D col)
+        {
+            if (!col.gameObject.CompareTag(Tags.Bonuses))
+            {
+                return;
+            }
+
+            Destroy(col.gameObject);
         }
 
         private void Move()

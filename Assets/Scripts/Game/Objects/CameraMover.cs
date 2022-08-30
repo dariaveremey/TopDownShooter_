@@ -16,9 +16,8 @@ namespace TDS.Assets.Scripts.Game.Objects
         {
             Vector3 followPosition = _follow.position;
             followPosition.z = _cachedTransform.position.z;
-            
+
             _cachedTransform.position = followPosition;
         }
-
     }
 }

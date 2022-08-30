@@ -41,5 +41,4 @@ namespace TDS.Assets.Scripts.Game.Player
             Statistics.Instance.IncrementLife(5);
         }
     }
-
 }

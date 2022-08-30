@@ -16,7 +16,6 @@ namespace TDS.Assets.Scripts.Game.Objects
             _rb.velocity = transform.up * _speed;
 
             StartCoroutine(LifeTimeTimer());
-
         }
 
         private IEnumerator LifeTimeTimer()

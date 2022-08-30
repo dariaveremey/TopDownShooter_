@@ -1,6 +1,5 @@
 using UnityEngine.SceneManagement;
 
-
 namespace TDS.Assets.Scripts.Game
 
 {
@@ -8,7 +7,7 @@ namespace TDS.Assets.Scripts.Game
     {
         public void LoadStartSceneScene()
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene(Scenes.StartScene);
         }
     }
 }

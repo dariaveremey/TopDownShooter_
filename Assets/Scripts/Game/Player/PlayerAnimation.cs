@@ -18,6 +18,8 @@ namespace TDS.Assets.Scripts.Game.Player
         }
 
         public void Death()
-        {_animator.Play("Death");}
+        {
+            _animator.Play("Death");
+        }
     }
 }

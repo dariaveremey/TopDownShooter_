@@ -5,8 +5,6 @@ namespace TDS.Assets.Scripts.Game
         public const string Bullet = "Bullet";
         public const string PlayerBullet = "PlayerBullet";
         public const string Player = "Player";
-        
-        //public const string Pad = "Pad";
-
+        public const string Bonuses = "Bonuses";
     }
 }
