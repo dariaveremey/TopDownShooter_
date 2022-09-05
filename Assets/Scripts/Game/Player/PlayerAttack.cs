@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TDS.Assets.Scripts.Game.Player
+namespace TDS.Game.Player
 {
     public class PlayerAttack : MonoBehaviour
     {
@@ -9,6 +9,7 @@ namespace TDS.Assets.Scripts.Game.Player
         [SerializeField] private GameObject _bulletPrefab;
         [SerializeField] private Transform _bulletSpawnPointTransform;
         [SerializeField] private float _fireDelay = 0.3f;
+        [SerializeField] private PlayerHp _playerHp;
 
         private Transform _cachedTransform;
         private float _timer;
@@ -34,7 +35,7 @@ namespace TDS.Assets.Scripts.Game.Player
 
         private void Attack()
         {
-            if (Statistics.Instance.LifeNumber <= 0)
+            if (_playerHp.CurrentHp <= 0)
             {
                 return;
             }

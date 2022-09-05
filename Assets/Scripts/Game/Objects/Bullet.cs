@@ -1,13 +1,14 @@
 using System.Collections;
 using UnityEngine;
 
-namespace TDS.Assets.Scripts.Game.Objects
+namespace TDS.Game.Objects
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class Bullet : MonoBehaviour
     {
         [SerializeField] private float _speed = 0.5f;
         [SerializeField] private float _lifeTime = 3f;
+        
         private Rigidbody2D _rb;
 
         private void Awake()

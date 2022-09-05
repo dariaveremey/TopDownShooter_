@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TDS.Assets.Scripts.Game.Player
+namespace TDS.Game.Player
 {
     public class PlayerAnimation : MonoBehaviour
 
@@ -17,9 +17,9 @@ namespace TDS.Assets.Scripts.Game.Player
             _animator.SetFloat("Speed", speed);
         }
 
-        public void Death()
+        public void PlayDeath()
         {
-            _animator.Play("Death");
+            _animator.SetTrigger("Death");
         }
     }
 }

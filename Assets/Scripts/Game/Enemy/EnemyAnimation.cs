@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace TDS.Assets.Scripts.Game.Zombie
+namespace TDS.Game.Zombie
 {
-    public class ZombieAnimation : MonoBehaviour
+    public class EnemyAnimation : MonoBehaviour
     {
         [SerializeField] private Animator _animator;
 
@@ -13,7 +13,7 @@ namespace TDS.Assets.Scripts.Game.Zombie
 
         public void Death()
         {
-            _animator.Play("Death");
+            _animator.SetTrigger("Death");
         }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TDS.Assets.Scripts.Game.Bonuses
+namespace TDS.Game.Bonuses
 {
     public class BonusesSpawner : MonoBehaviour
     {

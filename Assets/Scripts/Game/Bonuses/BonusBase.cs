@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TDS.Assets.Scripts.Game.Bonuses
+namespace TDS.Game.Bonuses
 {
     public abstract class BonuseBase : MonoBehaviour
 
@@ -21,4 +21,6 @@ namespace TDS.Assets.Scripts.Game.Bonuses
 
         protected abstract void ApplyEffect();
     }
+
+
 }

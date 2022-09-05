@@ -1,4 +1,4 @@
-namespace TDS.Assets.Scripts.Game
+namespace TDS.Game
 {
     public static class Tags
     {

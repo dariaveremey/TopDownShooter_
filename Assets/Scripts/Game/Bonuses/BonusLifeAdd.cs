@@ -1,17 +1,18 @@
-using TDS.Assets.Scripts.Game.Player;
+using TDS.Game.Player;
+using TDS.Game.Zombie;
 using UnityEngine;
-using static TDS.Assets.Scripts.Game.Player.Statistics;
 
-namespace TDS.Assets.Scripts.Game.Bonuses
+namespace TDS.Game.Bonuses
 {
     public class BonusLifeAdd : BonuseBase
     {
         [Header(nameof(BonusLifeAdd))]
         [SerializeField] private int _lives;
+        [SerializeField] private PlayerHp _playerHp;
 
         protected override void ApplyEffect()
         {
-            Statistics.Instance.IncrementLife(_lives);
+            _playerHp.ApplyHeal(_lives);
         }
     }
 }

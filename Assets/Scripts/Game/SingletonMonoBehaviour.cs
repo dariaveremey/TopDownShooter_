@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TDS.Assets.Scripts.Game
+namespace TDS.Game
 {
     public class SingletonMonoBehavior<T> : MonoBehaviour
     {
