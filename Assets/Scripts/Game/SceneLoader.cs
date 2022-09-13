@@ -7,7 +7,12 @@ namespace TDS.Game
     {
         public void LoadStartSceneScene()
         {
-            SceneManager.LoadScene(Scenes.StartScene);
+            SceneManager.LoadScene(Scenes.Level1);
+        }
+
+        public void LoadNextLevel()
+        {
+            SceneManager.LoadScene(Scenes.Level2);
         }
     }
 }

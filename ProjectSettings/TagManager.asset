@@ -8,6 +8,7 @@ TagManager:
   - Undefined
   - PlayerBullet
   - Bonuses
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -24,8 +25,8 @@ TagManager:
   - EnemyAttack
   - StartState
   - Barrel
-  - 
-  - 
+  - Objects
+  - ChangeLevel
   - 
   - 
   - 
@@ -42,6 +43,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 451689771
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Game
+    uniqueID: 81779299
     locked: 0

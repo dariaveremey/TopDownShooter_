@@ -7,7 +7,7 @@ namespace TDS.Game.Enemy
         [Header("Movement")]
         [SerializeField] private TriggerObserver _triggerObserver;
         [SerializeField] private EnemyIdle _enemyIdle;
-        [SerializeField] private EnemyMovement _enemyMovement;
+        [SerializeField] private EnemyDirectMovement _enemyDirectMovement;
         [SerializeField] private EnemyMoveToPlayer _enemyMoveToPlayer;
 
         [Header("Float")]
@@ -25,7 +25,7 @@ namespace TDS.Game.Enemy
         {
             _startPosition = transform.position;
             _enemyIdle.enabled = false;
-            _enemyMovement.enabled = false;
+            _enemyDirectMovement.enabled = false;
             _enemyMoveToPlayer.enabled = false;
             _triggerObserver.OnEntered += OnEntered;
             _triggerObserver.OnExited += OnExited;
@@ -46,7 +46,7 @@ namespace TDS.Game.Enemy
             transform.position = _startPosition;
             //Patrol();
             _enemyIdle.enabled = false;
-            _enemyMovement.enabled = false;
+            _enemyDirectMovement.enabled = false;
             _enemyMoveToPlayer.enabled = false;
         }
 

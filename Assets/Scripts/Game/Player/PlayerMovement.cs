@@ -46,7 +46,7 @@ namespace TDS.Game.Player
             float vertical = Input.GetAxis("Vertical");
 
             Vector2 direction = new Vector2(horizontal, vertical);
-            Vector3 moveDelta = direction * (_speed );
+            Vector3 moveDelta = direction * (_speed);
             _rb.velocity = moveDelta;
 
             _playerAnimation.SetSpeed(direction.magnitude);

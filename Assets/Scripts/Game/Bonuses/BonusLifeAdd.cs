@@ -1,5 +1,4 @@
 using TDS.Game.Player;
-using TDS.Game.Zombie;
 using UnityEngine;
 
 namespace TDS.Game.Bonuses

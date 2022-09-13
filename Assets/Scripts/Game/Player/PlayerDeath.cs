@@ -28,7 +28,6 @@ namespace TDS.Game.Player
             _playerMovement.enabled = false;
             _playerAttack.enabled = false;
             SceneLoader.Instance.LoadStartSceneScene();
-            
         }
     }
 }

@@ -2,10 +2,15 @@ using UnityEngine;
 
 namespace TDS.Game.Enemy
 {
-    public class EnemyIdle : MonoBehaviour
-
+    public abstract class EnemyIdle : EnemyBehaviour
     {
-        [SerializeField] private Transform _playerTransform;
+        [SerializeField] private EnemyIdle _idle;
+
+        private void OnEnabled()
+        {
+            _idle.enabled = true;
+        }
+        /*[SerializeField] private Transform _playerTransform;
         [SerializeField] private EnemyMoveToPlayer _enemyMoveToPlayer;
 
         [SerializeField] private EnemyHp _enemyHp;
@@ -30,5 +35,6 @@ namespace TDS.Game.Enemy
             Vector3 difference = _playerTransform.position - transform.position;
             transform.up = difference;
         }
+    }*/
     }
 }
