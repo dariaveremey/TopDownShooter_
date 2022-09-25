@@ -3,15 +3,15 @@ using UnityEngine;
 
 namespace TDS.Game.Bonuses
 {
-    public class BonusLifeAdd : BonusBase
+    public class BonusLifeAdd : BonuseBase
     {
         [Header(nameof(BonusLifeAdd))]
         [SerializeField] private int _lives;
+        [SerializeField] private PlayerHp _playerHp;
 
-        protected override void ApplyEffect(Collision2D col)
+        protected override void ApplyEffect()
         {
-            PlayerHp playerHp = col.gameObject.GetComponentInParent<PlayerHp>();
-            playerHp.ApplyHeal(_lives);
+            _playerHp.ApplyHeal(_lives);
         }
     }
 }

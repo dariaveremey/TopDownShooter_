@@ -73,6 +73,8 @@ namespace TDS.Game.Enemy
                 {
                     _waitTime -= Time.deltaTime;
                 }
+                
+                
             }
         }*/
     }

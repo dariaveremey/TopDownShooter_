@@ -1,9 +1,15 @@
+using TDS.Game.Enemy;
 using UnityEditor;
 
-namespace TDS.Game.Editor.Game
+namespace TDS.Assets.Scripts.Game
 {
-    public class PatrolPathEditor: Editor
+    [CustomEditor(typeof(PathPatrol))]
+    public class PatrolPathEditor:Editor
     {
-        
+        [DrawGizmo(GizmoType.Selected | GizmoType.Active)]
+        private static void DrawGizmoForMyScript(PathPatrol path, GizmoType gizmoType)
+        {
+            path.CurrentPoint();
+        }
     }
 }

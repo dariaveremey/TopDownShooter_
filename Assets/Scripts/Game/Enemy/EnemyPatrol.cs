@@ -4,7 +4,7 @@ namespace TDS.Game.Enemy
 {
     public class EnemyPatrol : EnemyIdle
     {
-        [SerializeField] private PatrolPath _path;
+        [SerializeField] private PathPatrol _path;
         [SerializeField] private EnemyMovement _enemyMovement;
         [SerializeField] private float _distanceToPoint = 1f;
 
