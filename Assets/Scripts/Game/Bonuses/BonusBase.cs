@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace TDS.Game.Bonuses
 {
-    public abstract class BonuseBase : MonoBehaviour
+    public abstract class BonusBase : MonoBehaviour
     {
         [SerializeField] private float _spawnChance;
 
@@ -15,9 +15,9 @@ namespace TDS.Game.Bonuses
                 return;
             }
 
-            ApplyEffect();
+            ApplyEffect(col);
         }
 
-        protected abstract void ApplyEffect();
+        protected abstract void ApplyEffect(Collision2D col);
     }
 }

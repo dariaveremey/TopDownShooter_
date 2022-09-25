@@ -6,8 +6,11 @@ namespace TDS.Game.Enemy
     {
         [SerializeField] private EnemyIdle _enemyIdle;
 
-        private void OnEnable()
+        public override void Activate()
         {
+            base.Activate();
+
+            Deactivate();
             _enemyIdle.Activate();
         }
         /*[Header("Movement")]

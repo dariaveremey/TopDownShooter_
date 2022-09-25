@@ -31,7 +31,7 @@ namespace TDS.Game.Enemy
             RotateToTarget();
         }
 
-        public void SetTarget(Transform target)
+        public override void SetTarget(Transform target)
         {
             _target = target;
 
@@ -46,6 +46,7 @@ namespace TDS.Game.Enemy
         {
             Vector3 direction = (_target.position - _cachedTransform.position).normalized;
             SetVelocity(direction * _speed);
+        
         }
 
         private void RotateToTarget()
@@ -54,7 +55,11 @@ namespace TDS.Game.Enemy
             _cachedTransform.up = direction;
         }
 
-        private void SetVelocity(Vector2 velocity) =>
+        private void SetVelocity(Vector2 velocity)
+        {    
             _rb.velocity = velocity;
+            SetAnimationSpeed(velocity.magnitude);
+        }
+    
     }
 }

@@ -33,15 +33,27 @@ namespace TDS.Game.Enemy
             Attack();
         }
 
+        /*public override void Activate()
+        {
+            base.Activate();
+            _enemyAnimation.StartPlayAttack();
+        }*/
+
         private void Attack()
         {
             if (CanAttack())
             {
                 AttackInternal();
-                Instantiate(_weaponPrefab, _weaponSpawnPointTransform.position, transform.rotation);
-                _enemyAnimation.ZombieShoot();
+                //Instantiate(_weaponPrefab, _weaponSpawnPointTransform.position, transform.rotation);
+               // _enemyAnimation.ZombieShoot();
             }
         }
+
+        /*public override void Deactivate()
+        {
+            base.Deactivate();
+            _enemyAnimation.StopPlayAttack();
+        }*/
 
         private void TickTimer() =>
             _delayTimer -= Time.deltaTime;
@@ -52,6 +64,11 @@ namespace TDS.Game.Enemy
         private void AttackInternal()
         {
             _delayTimer = _attackDelay;
+            _enemyAnimation.PlayAttack();
+        }
+
+        public void PerformDamage()
+        {
             Collider2D col = Physics2D.OverlapCircle(_attackPoint.position, _radius, _layerMask);
 
             if (col == null)

@@ -4,7 +4,7 @@ namespace TDS.Game.Bonuses
 {
     public class BonusesSpawner : MonoBehaviour
     {
-        [SerializeField] private BonuseBase[] _bonusesPrefabArray;
+        [SerializeField] private BonusBase[] _bonusesPrefabArray;
         [SerializeField] private float _startTime;
         [SerializeField] private float _repeatingTime;
 
@@ -14,7 +14,7 @@ namespace TDS.Game.Bonuses
         {
             InvokeRepeating(nameof(SpawnItem), _startTime, _repeatingTime);
 
-            foreach (BonuseBase bonus in _bonusesPrefabArray)
+            foreach (BonusBase bonus in _bonusesPrefabArray)
             {
                 _chanceValue += bonus.SpawnChance;
             }
@@ -31,7 +31,7 @@ namespace TDS.Game.Bonuses
 
             Vector3 randomPosition = new(Random.Range(min.x, min.y), Random.Range(max.x, max.y));
 
-            foreach (BonuseBase item in _bonusesPrefabArray)
+            foreach (BonusBase item in _bonusesPrefabArray)
             {
                 currentChance += item.SpawnChance;
                 if (currentChance >= randomChance)
