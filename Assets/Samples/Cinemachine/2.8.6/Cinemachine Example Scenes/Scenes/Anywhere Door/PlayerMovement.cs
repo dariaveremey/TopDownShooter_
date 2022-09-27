@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TDS.Game.InputServices;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -29,4 +30,9 @@ public float lookatspeed = 5f;
 		transform.Rotate(0f, horizontal, 0f, Space.World);
 		//transform.Rotate(-vertical, 0f, 0f, Space.Self);
         }
+
+    public void Construct(IInputService get)
+    {
+        throw new System.NotImplementedException();
+    }
 }
