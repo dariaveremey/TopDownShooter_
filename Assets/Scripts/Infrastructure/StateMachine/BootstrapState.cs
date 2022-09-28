@@ -1,3 +1,4 @@
+using TDS.Assets.Infrastructure.Coroutine;
 using TDS.Assets.Infrastructure.SceneLoader;
 using TDS.Assets.Infrastructure.ServicesContainer;
 using UnityEngine;
@@ -11,7 +12,6 @@ namespace TDS.Assets.Infrastructure.StateMachine
         }
         public override void Enter()
         {
-            Debug.Log($"StartOnBootstrapState");
             RegisterAllGlobalServices();
             ISceneLoadService sceneLoadService=Services.Container.Get<ISceneLoadService>();
             sceneLoadService.Load("MenuScene",OnSceneLoaded);
@@ -24,7 +24,18 @@ namespace TDS.Assets.Infrastructure.StateMachine
 
         private void RegisterAllGlobalServices()
         {
-            Services.Container.Register<ISceneLoadService>(new SyncSceneLoadService());
+            CreateCoroutineRunner();
+            Services.Container.Register<ISceneLoadService>(
+                new SyncSceneLoadService(Services.Container.Get<ICoroutineRunner>()));
+        }
+
+        
+        private void CreateCoroutineRunner()
+        {
+            CoroutineRunner coroutineRunner =
+                new GameObject(nameof(CoroutineRunner)).AddComponent<CoroutineRunner>();
+            Object.DontDestroyOnLoad(coroutineRunner);
+            Services.Container.Register<ICoroutineRunner>(coroutineRunner);
         }
 
         public override void Exit()

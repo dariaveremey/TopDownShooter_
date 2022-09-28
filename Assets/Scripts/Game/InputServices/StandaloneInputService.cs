@@ -14,9 +14,13 @@ public class StandaloneInputService : IInputService
         _mainCamera = camera;
         _playerMovementTransform = playerMovementTransform;
     }
-    
+
     private Vector3 GetLookDirection()
     {
-    }
+        var mousePosition = Input.mousePosition;
+        var worldPoint = _mainCamera.ScreenToWorldPoint(mousePosition);
+        worldPoint.z = 0f;
 
+        return worldPoint - _playerMovementTransform.position;
+    }
 }

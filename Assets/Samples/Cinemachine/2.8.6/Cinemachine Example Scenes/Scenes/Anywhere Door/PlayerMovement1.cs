@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TDS.Game.InputServices;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement1 : MonoBehaviour
 {
 public float movementSpeed = 10f;
 public float lookatspeed = 5f;

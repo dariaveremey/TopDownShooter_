@@ -8,7 +8,7 @@ namespace TDS.Game.Player
     {
         [SerializeField] private PlayerAnimation _playerAnimation;
         [SerializeField] private float _speed = 4f;
-        
+
         private Transform _cachedTransform;
         private Rigidbody2D _rb;
 
@@ -27,6 +27,9 @@ namespace TDS.Game.Player
 
         private void Update()
         {
+            if(_inputService==null)
+                return;
+            
             Move();
             Rotate();
         }
