@@ -22,7 +22,7 @@ namespace TDS.Assets.Menu.UI
 
         private void OnPlayButtonClicked()
         {
-            _stateMachine.Enter<GameState>();
+            _stateMachine.Enter<GameState, string>("GameScene");
         }
     }
 }

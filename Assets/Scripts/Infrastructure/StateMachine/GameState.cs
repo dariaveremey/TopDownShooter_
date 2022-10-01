@@ -1,43 +1,67 @@
+using System;
+using System.Collections.Generic;
+using TDS.Assets.Infrastructure.LoadingScreen;
 using TDS.Assets.Infrastructure.SceneLoader;
 using TDS.Assets.Infrastructure.ServicesContainer;
 using TDS.Game.InputServices;
 using TDS.Game.Player;
+using TDS.Game.Servieces.Npc;
 using UnityEngine;
-using Debug = System.Diagnostics.Debug;
+using Object = UnityEngine.Object;
 
 namespace TDS.Assets.Infrastructure.StateMachine
-
 {
-    public class GameState:BaseState
+    public class GameState : BaseExitableState, IPayloadState<string>
     {
-       /* public GameState(IGameStateMachine gameStateMachine) : base(gameStateMachine)
+        private ISceneLoadService _sceneLoadService;
+        private ILoadingScreenService _loadingScreenService;
+        private INpcService _npcService;
+
+        public GameState(IGameStateMachine gameStateMachine) : base(gameStateMachine)
         {
         }
 
-        public override void Enter()
+        public void Enter(string sceneName)
         {
-            // TODO: Show loading screen
-            ISceneLoadService sceneLoadService = Services.Container.Get<ISceneLoadService>();
-            sceneLoadService.Load("GameScene", OnSceneLoaded);
+            Services.Container.Get(out _sceneLoadService);
+            Services.Container.Get(out _loadingScreenService);
+
+            _loadingScreenService.ShowScreen();
+            _sceneLoadService.Load(sceneName, OnSceneLoaded);
         }
 
         public override void Exit()
         {
+            Dispose();
             UnRegisterLocalServices();
+
+            _loadingScreenService = null;
+            _sceneLoadService = null;
+        }
+
+        private void Dispose()
+        { 
+            _npcService.Dispose();
         }
 
         private void UnRegisterLocalServices()
         {
             Services.Container.UnRegister<IInputService>();
+            Services.Container.UnRegisterAndNullRef(ref _npcService);
         }
 
         private void OnSceneLoaded()
         {
             // TODO: Init all local services
             RegisterLocalServices();
-            
-            
-            // TODO: Hide loading screen
+
+            Initialize();
+            _loadingScreenService.HideScreen();
+        }
+
+        private void Initialize()
+        {
+            _npcService.Init();
         }
 
         private void RegisterLocalServices()
@@ -45,65 +69,18 @@ namespace TDS.Assets.Infrastructure.StateMachine
             PlayerMovement playerMovement = Object.FindObjectOfType<PlayerMovement>();
             RegisterInputService(playerMovement);
             InitPlayerMovement(playerMovement);
+            _npcService = Services.Container.Register<INpcService>(new NpcService());
         }
 
         private void RegisterInputService(PlayerMovement playerMovement)
         {
             Services.Container.Register<IInputService>(
-                new StandaloneInputService(Camera.main, playerMovement.transform));
+               new StandaloneInputService(Camera.main, playerMovement.transform));
         }
 
         private void InitPlayerMovement(PlayerMovement playerMovement)
         {
             playerMovement.Construct(Services.Container.Get<IInputService>());
         }
-    }*/
-       public GameState(IGameStateMachine gameStateMachine) : base(gameStateMachine)
-       {
-       }
-
-       public override void Enter()
-       {
-           // TODO: Show loading screen
-           ISceneLoadService sceneLoadService = Services.Container.Get<ISceneLoadService>();
-           sceneLoadService.Load("GameScene", OnSceneLoaded);
-       }
-
-       public override void Exit()
-       {
-           UnRegisterLocalServices();
-       }
-
-       private void UnRegisterLocalServices()
-       {
-           Services.Container.UnRegister<IInputService>();
-       }
-
-       private void OnSceneLoaded()
-       {
-           // TODO: Init all local services
-           RegisterLocalServices();
-            
-            
-           // TODO: Hide loading screen
-       }
-
-       private void RegisterLocalServices()
-       {
-           PlayerMovement playerMovement = Object.FindObjectOfType<PlayerMovement>();
-           Debug.Print("RegisterInputService");
-           RegisterInputService(playerMovement);
-           InitPlayerMovement(playerMovement);
-       }
-
-       private void RegisterInputService(PlayerMovement playerMovement)
-       {
-         Services.Container.Register<IInputService>(new StandaloneInputService(Camera.main, playerMovement.transform));
-       }
-
-       private void InitPlayerMovement(PlayerMovement playerMovement)
-       {
-           playerMovement.Construct(Services.Container.Get<IInputService>());
-       }
     }
-    }
+}

@@ -19,14 +19,13 @@ namespace TDS.Assets.Infrastructure.SceneLoader
         public void Load(string sceneName, Action completeCallback)
         {
             SceneManager.LoadScene(sceneName);
-            _coroutineRunner.StartCoroutine(WaitFrames(3, completeCallback));
+            _coroutineRunner.StartCoroutine(WaitFrames(1, completeCallback));
 
         }
         private IEnumerator WaitFrames(int count, Action completeCallback)
         {
             yield return null;
             completeCallback?.Invoke();
-            Debug.Log("Next frame");
         }
     }
 }

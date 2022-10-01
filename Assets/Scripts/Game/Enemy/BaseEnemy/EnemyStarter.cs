@@ -8,8 +8,9 @@ namespace TDS.Game.Enemy
     public class EnemyStarter : MonoBehaviour
     {
         [SerializeField] private EnemyIdle _enemyIdle;
+        
 
-        private void Start()
+        public void Begin()
         {
             _enemyIdle.Activate();
         }

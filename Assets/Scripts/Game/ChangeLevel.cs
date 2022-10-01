@@ -8,7 +8,7 @@ namespace TDS.Game
         {
             if (col.gameObject.CompareTag(Tags.Player))
             {
-                SceneLoader.Instance.LoadNextLevel();
+                //SceneLoader.Instance.LoadNextLevel();
 
             }
         }

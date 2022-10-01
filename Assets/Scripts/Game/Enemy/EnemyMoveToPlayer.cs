@@ -5,7 +5,7 @@ namespace TDS.Game.Enemy
 {
     public class EnemyMoveToPlayer : EnemyFollow
     {
-        [SerializeField] private EnemyDirectMovement _enemyDirectMovement;
+        [SerializeField] private EnemyMovement _enemyMovement;
         private Transform _playerTransform;
 
         private void Start()
@@ -27,7 +27,7 @@ namespace TDS.Game.Enemy
 
         private void SetTarget(Transform target)
         {
-            _enemyDirectMovement.SetTarget(target);
+            _enemyMovement.SetTarget(target);
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using TDS.Game.Enemy;
 using UnityEngine;
 
@@ -19,6 +20,8 @@ namespace TDS.Assets.Game.Enemy.Base
         }
 
         public bool IsEnemyDead { get; private set; }
+
+        public event Action<EnemyDeath> OnHappened;
 
         private void OnHpChanged(int hp)
         {

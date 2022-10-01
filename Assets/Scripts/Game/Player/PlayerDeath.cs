@@ -27,7 +27,7 @@ namespace TDS.Game.Player
             _playerAnimation.PlayDeath();
             _playerMovement.enabled = false;
             _playerAttack.enabled = false;
-            SceneLoader.Instance.LoadStartSceneScene();
+            //TODO: ReloadScene
         }
     }
 }

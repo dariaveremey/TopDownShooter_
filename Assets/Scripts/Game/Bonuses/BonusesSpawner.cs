@@ -1,3 +1,4 @@
+using Lean.Pool;
 using UnityEngine;
 
 namespace TDS.Game.Bonuses
@@ -36,7 +37,7 @@ namespace TDS.Game.Bonuses
                 currentChance += item.SpawnChance;
                 if (currentChance >= randomChance)
                 {
-                    Instantiate(item, randomPosition, Quaternion.identity);
+                    LeanPool.Spawn(item, randomPosition, Quaternion.identity);
                     break;
                 }
             }
