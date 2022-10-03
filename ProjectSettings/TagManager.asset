@@ -9,6 +9,7 @@ TagManager:
   - PlayerBullet
   - Bonuses
   - Enemy
+  - Obstacles
   layers:
   - Default
   - TransparentFX

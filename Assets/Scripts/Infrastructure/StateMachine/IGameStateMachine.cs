@@ -1,6 +1,6 @@
-using TDS.Assets.Infrastructure.ServicesContainer;
+using TDS.Assets.Infrastructure.StateMachine;
 
-namespace TDS.Assets.Infrastructure.StateMachine
+namespace TDS.Assets.Infrastructure
 {
     public interface IGameStateMachine:IService
     {

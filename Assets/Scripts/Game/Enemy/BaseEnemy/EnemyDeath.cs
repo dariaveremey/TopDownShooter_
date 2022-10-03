@@ -1,18 +1,22 @@
 using System;
-using TDS.Game.Enemy;
+using TDS.Game.Bonuses;
 using UnityEngine;
 
-namespace TDS.Assets.Game.Enemy.Base
-{ 
+namespace TDS.Assets.Game
+{
     public class EnemyDeath : MonoBehaviour
     {
         [Header("Movement")]
         [SerializeField] private EnemyMoveToPlayer _enemyMoveToPlayer;
-        [SerializeField] private EnemyDirectMovement _enemyDirectMovement;
+        [SerializeField] private EnemyMovement _enemyMovement;
         [SerializeField] private EnemyIdle _enemyIdle;
+        [SerializeField] private EnemyStarter _enemyStarter;
+        
         [Header("Other")]
-        [SerializeField] private EnemyAnimation _enemyAnimation;
+        [SerializeField] private AnimationBase _enemyAnimation;
         [SerializeField] private EnemyHp _enemyHp;
+
+        [SerializeField] private BonusesSpawner _spawner;
 
         private void Start()
         {
@@ -37,9 +41,13 @@ namespace TDS.Assets.Game.Enemy.Base
         private void ZombieDeath()
         {
             _enemyAnimation.Death();
-            _enemyIdle.enabled = false;
-            _enemyMoveToPlayer.enabled = false;
-            _enemyDirectMovement.enabled = false;
+            OnHappened?.Invoke(this);
+            _spawner.SpawnItem();
+            _enemyIdle.Deactivate();
+            _enemyMoveToPlayer.Deactivate();
+            _enemyMovement.Deactivate();
+            _enemyStarter.enabled = false;
+            
         }
     }
 }

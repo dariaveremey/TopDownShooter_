@@ -1,6 +1,6 @@
 using System;
 
-namespace TDS.Game.Objects
+namespace TDS.Assets.Game
 {
     public interface IHealth
     {

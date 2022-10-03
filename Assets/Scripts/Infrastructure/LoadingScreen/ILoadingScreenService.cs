@@ -1,8 +1,5 @@
-using TDS.Assets.Infrastructure.ServicesContainer;
-
-namespace TDS.Assets.Infrastructure.LoadingScreen
+namespace TDS.Assets.Infrastructure
 {
-    
     public interface ILoadingScreenService:IService
     {
         void HideScreen();

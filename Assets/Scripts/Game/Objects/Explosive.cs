@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace TDS.Game.Objects
+namespace TDS.Assets.Game
 {
     public class Explosive : MonoBehaviour
     {

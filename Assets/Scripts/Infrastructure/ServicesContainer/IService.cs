@@ -1,4 +1,4 @@
-namespace TDS.Assets.Infrastructure.ServicesContainer
+namespace TDS.Assets.Infrastructure
 {
     public interface IService
     {

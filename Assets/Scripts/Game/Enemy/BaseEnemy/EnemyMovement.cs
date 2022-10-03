@@ -1,12 +1,11 @@
-using TDS.Assets.Game.Enemy.Base;
 using UnityEngine;
 
-namespace TDS.Game.Enemy
+namespace TDS.Assets.Game
 {
     public abstract class EnemyMovement : EnemyBehaviour
     {
         [SerializeField] private float _speed = 4;
-        [SerializeField] private EnemyAnimation _enemyAnimation;
+        [SerializeField] private AnimationBase _enemyAnimation;
 
         protected float Spead => _speed;
         public abstract void SetTarget(Transform target);

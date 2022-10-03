@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
-using TDS.Assets.Infrastructure.LoadingScreen;
-using TDS.Assets.Infrastructure.SceneLoader;
-using TDS.Assets.Infrastructure.ServicesContainer;
-using TDS.Game.InputServices;
-using TDS.Game.Player;
-using TDS.Game.Servieces.Npc;
+using TDS.Assets.Game;
+using TDS.Assets.Infrastructure.StateMachine;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace TDS.Assets.Infrastructure.StateMachine
+namespace TDS.Assets.Infrastructure
 {
     public class GameState : BaseExitableState, IPayloadState<string>
     {

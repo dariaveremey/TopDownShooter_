@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TDS.Game.Enemy
+namespace TDS.Assets.Game
 {
     public abstract class EnemyIdle : EnemyBehaviour
     {
@@ -10,31 +10,5 @@ namespace TDS.Game.Enemy
         {
             _idle.enabled = true;
         }
-        /*[SerializeField] private Transform _playerTransform;
-        [SerializeField] private EnemyMoveToPlayer _enemyMoveToPlayer;
-
-        [SerializeField] private EnemyHp _enemyHp;
-
-        private void Awake()
-        {
-            _enemyMoveToPlayer.enabled = false;
-        }
-
-        private void Update()
-        {
-            if (_enemyHp.CurrentHp == 0)
-            {
-                return;
-            }
-
-            Move();
-        }
-
-        private void Move()
-        {
-            Vector3 difference = _playerTransform.position - transform.position;
-            transform.up = difference;
-        }
-    }*/
     }
 }

@@ -1,24 +1,21 @@
-using TDS.Assets.Game.Enemy.Base;
-using TDS.Game.Player;
 using UnityEngine;
 
-namespace TDS.Game.Enemy
+namespace TDS.Assets.Game
 {
     public class EnemyMeleeAttack : EnemyAttack
     {
         [Header("Weapon")]
         [SerializeField] private Transform _weaponSpawnPointTransform;
-        [SerializeField] private GameObject _weaponPrefab;
 
         [Header("Attack")]
-        [SerializeField] private EnemyAnimation _enemyAnimation;
+        [SerializeField] private AnimationBase _enemyAnimation;
         [SerializeField] private Transform _playerTransform;
         [SerializeField] private float _attackDelay = 5f;
 
         [Header("AttackAria")]
         [SerializeField] private int _damage = 2;
         [SerializeField] private Transform _attackPoint;
-        [SerializeField] private float _radius=2f;
+        [SerializeField] private float _radius = 2f;
         [SerializeField] private LayerMask _layerMask;
 
         private float _delayTimer;
@@ -34,27 +31,13 @@ namespace TDS.Game.Enemy
             Attack();
         }
 
-        /*public override void Activate()
-        {
-            base.Activate();
-            _enemyAnimation.StartPlayAttack();
-        }*/
-
         private void Attack()
         {
             if (CanAttack())
             {
                 AttackInternal();
-                //Instantiate(_weaponPrefab, _weaponSpawnPointTransform.position, transform.rotation);
-               // _enemyAnimation.ZombieShoot();
             }
         }
-
-        /*public override void Deactivate()
-        {
-            base.Deactivate();
-            _enemyAnimation.StopPlayAttack();
-        }*/
 
         private void TickTimer() =>
             _delayTimer -= Time.deltaTime;

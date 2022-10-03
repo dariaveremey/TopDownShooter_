@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TDS.Game.Enemy
+namespace TDS.Assets.Game
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class EnemyDirectMovement : EnemyMovement
@@ -45,7 +45,6 @@ namespace TDS.Game.Enemy
         {
             Vector3 direction = (_target.position - _cachedTransform.position).normalized;
             SetVelocity(direction * Spead);
-        
         }
 
         private void RotateToTarget()
@@ -55,10 +54,9 @@ namespace TDS.Game.Enemy
         }
 
         private void SetVelocity(Vector2 velocity)
-        {    
+        {
             _rb.velocity = velocity;
             SetAnimationSpeed(velocity.magnitude);
         }
-    
     }
 }

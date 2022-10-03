@@ -1,8 +1,7 @@
 using System;
-using TDS.Game.Objects;
 using UnityEngine;
 
-namespace TDS.Game.Enemy
+namespace TDS.Assets.Game
 {
     public class EnemyHp : MonoBehaviour, IHealth
     {

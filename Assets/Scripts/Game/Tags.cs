@@ -1,4 +1,4 @@
-namespace TDS.Game
+namespace TDS.Assets.Game
 {
     public static class Tags
     {
@@ -7,5 +7,6 @@ namespace TDS.Game
         public const string Player = "Player";
         public const string Bonuses = "Bonuses";
         public const string Enemy = "Enemy";
+
     }
 }

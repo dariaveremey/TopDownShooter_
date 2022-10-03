@@ -1,4 +1,7 @@
-public interface IExitableState
+namespace TDS.Assets.Infrastructure
 {
-    void Exit();
+    public interface IExitableState
+    {
+        void Exit();
+    }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace TDS.Assets.Infrastructure.ServicesContainer
+namespace TDS.Assets.Infrastructure
 {
     public class Services
     {

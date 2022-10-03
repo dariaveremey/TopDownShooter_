@@ -1,9 +1,6 @@
-using UnityEngine;
-
-namespace TDS.Game.Enemy
+namespace TDS.Assets.Game
 {
     public abstract class EnemyAttack : EnemyBehaviour
     {
-        
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TDS.Assets.Infrastructure.LoadingScreen
+namespace TDS.Assets.Infrastructure
 {
     public class LoadingScreenService : ILoadingScreenService
     {

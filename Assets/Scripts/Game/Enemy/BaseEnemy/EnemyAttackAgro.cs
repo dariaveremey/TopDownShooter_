@@ -1,7 +1,6 @@
-using TDS.Game.Enemy;
 using UnityEngine;
 
-namespace TDS.Assets.Game.Enemy.Base
+namespace TDS.Assets.Game
 {
     public class EnemyAttackAgro : MonoBehaviour
     {

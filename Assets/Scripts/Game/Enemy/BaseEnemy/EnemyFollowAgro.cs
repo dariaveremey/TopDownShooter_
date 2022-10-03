@@ -1,6 +1,7 @@
+using TDS.Game.Enemy;
 using UnityEngine;
 
-namespace TDS.Game.Enemy
+namespace TDS.Assets.Game
 {
     public class EnemyFollowAgro : EnemyFollow
     {
@@ -19,25 +20,24 @@ namespace TDS.Game.Enemy
         {
             _cashedTransform = transform;
         }
+
         private void Start()
         {
             _triggerObserver.OnStayed += OnStayed;
             _triggerObserver.OnExited += OnExited;
-            
-            
         }
 
         private void OnStayed(Collider2D other)
         {
-            if(_isInAgro)
+            if (_isInAgro)
                 return;
 
             Vector3 currentPosition = _cashedTransform.position;
-            Vector3 direction = other.ClosestPoint(currentPosition) - (Vector2)currentPosition; 
+            Vector3 direction = other.ClosestPoint(currentPosition) - (Vector2) currentPosition;
             RaycastHit2D hit2D = Physics2D.Raycast(currentPosition, direction, direction.magnitude, _layer);
-            
-            Debug.DrawRay(currentPosition,direction);
-            
+
+            Debug.DrawRay(currentPosition, direction);
+
             if (hit2D.collider == null)
             {
                 EnterFollow();
@@ -54,10 +54,11 @@ namespace TDS.Game.Enemy
             else
             {
                 _enemyBackToIdle.Deactivate();
-            }    
-            
+            }
+
             _enemyFollow.Activate();
         }
+
         private void OnExited(Collider2D other)
         {
             _enemyFollow.Deactivate();

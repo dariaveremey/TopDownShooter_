@@ -1,11 +1,10 @@
-using TDS.Assets.Infrastructure.ServicesContainer;
-using TDS.Assets.Infrastructure.StateMachine;
+using TDS.Assets.Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace TDS.Assets.Menu.UI
+namespace TDS.Assets.Menu
 {
-    public class MenuScreen:MonoBehaviour
+    public class MenuScreen : MonoBehaviour
     {
         [SerializeField] private Button _playButton;
         private IGameStateMachine _stateMachine;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TDS.Game.Objects
+namespace TDS.Assets.Game
 {
     public class CameraMover : MonoBehaviour
     {

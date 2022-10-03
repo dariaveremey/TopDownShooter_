@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
+using TDS.Assets.Infrastructure.StateMachine;
 
-namespace TDS.Assets.Infrastructure.StateMachine
+namespace TDS.Assets.Infrastructure
 {
     public class GameStateMachine :IGameStateMachine
     {

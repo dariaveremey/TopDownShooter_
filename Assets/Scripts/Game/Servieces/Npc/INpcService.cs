@@ -1,14 +1,13 @@
 using System;
-using TDS.Assets.Infrastructure.ServicesContainer;
+using TDS.Assets.Infrastructure;
 
-namespace TDS.Game.Servieces.Npc
+namespace TDS.Assets.Game
 {
-    public interface INpcService:IService
+    public interface INpcService : IService
     {
         event Action OnAllDead;
-        
+
         void Init();
         void Dispose();
-
     }
 }

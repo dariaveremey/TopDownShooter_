@@ -1,4 +1,4 @@
-namespace TDS.Game
+namespace TDS.Assets.Game
 {
     public static class Scenes
     {

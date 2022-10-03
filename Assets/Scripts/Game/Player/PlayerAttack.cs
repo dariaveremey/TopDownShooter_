@@ -1,7 +1,12 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using Lean.Pool;
 using UnityEngine;
+using Debug = System.Diagnostics.Debug;
+using Object = UnityEngine.Object;
 
-namespace TDS.Game.Player
+namespace TDS.Assets.Game
 {
     public class PlayerAttack : MonoBehaviour
     {
@@ -11,9 +16,14 @@ namespace TDS.Game.Player
         [SerializeField] private Transform _bulletSpawnPointTransform;
         [SerializeField] private float _fireDelay = 0.3f;
         [SerializeField] private PlayerHp _playerHp;
+ 
 
         private Transform _cachedTransform;
         private float _timer;
+        private Bullet[] _bullets;
+        
+        public event Action<int> OnChanged;
+        public int BulletNumber { get; private set; } = 5;
 
         private void Awake()
         {
@@ -23,6 +33,9 @@ namespace TDS.Game.Player
         private void Update()
         {
             TickTimer();
+
+           // _bullets = LeanGameObjectPool.TryFindPoolByPrefab(_bulletPrefab,ref LeanPool);
+           _bullets = FindObjectsOfType<Bullet>();
             if (CanAttack())
             {
                 Attack();
@@ -31,7 +44,7 @@ namespace TDS.Game.Player
 
         private bool CanAttack()
         {
-            return Input.GetButton("Fire1") && _timer <= 0;
+            return Input.GetButton("Fire1") && _timer <= 0 && BulletNumber>0;
         }
 
         private void Attack()
@@ -42,7 +55,7 @@ namespace TDS.Game.Player
             }
 
             _playerAnimation.PlayShoot();
-            LeanPool.Spawn(_bulletPrefab, _bulletSpawnPointTransform.position, _cachedTransform.rotation);
+            BulletNumber -= 1;
             _timer = _fireDelay;
         }
 
@@ -50,5 +63,19 @@ namespace TDS.Game.Player
         {
             _timer -= Time.deltaTime;
         }
+
+        public void AddBulletsNumber(int number)
+        {
+            BulletNumber = number;
+            if (BulletNumber < _bullets.Length)
+            {
+                for (int i = 0; i <BulletNumber -_bullets.Length ; i++)
+                {
+                    LeanPool.Spawn(_bulletPrefab, _bulletSpawnPointTransform.position, _cachedTransform.rotation);
+                }
+            }
+            OnChanged?.Invoke(BulletNumber);
+        }
+
     }
 }

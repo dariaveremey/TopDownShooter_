@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TDS.Game.Enemy
+namespace TDS.Assets.Game
 {
     public class EnemyStartState : MonoBehaviour
     {
@@ -34,7 +34,6 @@ namespace TDS.Game.Enemy
         private void Start()
         {
             _waitTime = _startWaitTime;
-            //_movePosition.position = new Vector2(Random.Range(_minX, _maxX), _startPosition.y);
         }
 
         private void OnEntered(Collider2D col)
@@ -44,7 +43,6 @@ namespace TDS.Game.Enemy
         private void OnExited(Collider2D col)
         {
             transform.position = _startPosition;
-            //Patrol();
             _enemyIdle.enabled = false;
             _enemyDirectMovement.enabled = false;
             _enemyMoveToPlayer.enabled = false;

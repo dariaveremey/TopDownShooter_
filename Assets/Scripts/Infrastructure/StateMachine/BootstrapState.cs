@@ -1,7 +1,3 @@
-using TDS.Assets.Infrastructure.Coroutine;
-using TDS.Assets.Infrastructure.LoadingScreen;
-using TDS.Assets.Infrastructure.SceneLoader;
-using TDS.Assets.Infrastructure.ServicesContainer;
 using UnityEngine;
 
 namespace TDS.Assets.Infrastructure.StateMachine
@@ -29,7 +25,6 @@ namespace TDS.Assets.Infrastructure.StateMachine
             Services.Container.RegisterMono<ICoroutineRunner>(typeof(CoroutineRunner));
             Services.Container.Register<ISceneLoadService>(
                 new AsyncSceneLoadService(Services.Container.Get<ICoroutineRunner>()));
-            
             Services.Container.Register<ILoadingScreenService>(new LoadingScreenService());
         }
     }

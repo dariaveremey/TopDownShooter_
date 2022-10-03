@@ -1,9 +1,8 @@
 using System.Collections;
 using Lean.Pool;
-using TDS.Game.Enemy;
 using UnityEngine;
 
-namespace TDS.Game.Objects
+namespace TDS.Assets.Game
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class Bullet : MonoBehaviour
@@ -50,6 +49,7 @@ namespace TDS.Game.Objects
             yield return new WaitForSeconds(_lifeTime);
             DeSpawn();
         }
+
 
         private void DeSpawn()
         {

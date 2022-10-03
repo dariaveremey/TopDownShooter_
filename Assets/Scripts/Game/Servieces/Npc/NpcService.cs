@@ -1,30 +1,27 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using TDS.Assets.Game.Enemy.Base;
-using TDS.Assets.Infrastructure.ServicesContainer;
-using TDS.Game.Enemy;
 using Object = UnityEngine.Object;
 
-namespace TDS.Game.Servieces.Npc
+namespace TDS.Assets.Game
 {
-    public class NpcService:INpcService
+    public class NpcService : INpcService
     {
         private List<EnemyDeath> _enemies;
-        
+
         public event Action OnAllDead;
-        
+
         public void Init()
         {
-           EnemyStarter[] enemyStarters= Object.FindObjectsOfType<EnemyStarter>();
+            EnemyStarter[] enemyStarters = Object.FindObjectsOfType<EnemyStarter>();
 
-           foreach (EnemyStarter starter in enemyStarters)
-           {
-               starter.Begin();
-           }
-           _enemies=Object.FindObjectsOfType<EnemyDeath>().ToList();
-           Subscribe();
+            foreach (EnemyStarter starter in enemyStarters)
+            {
+                starter.Begin();
+            }
+
+            _enemies = Object.FindObjectsOfType<EnemyDeath>().ToList();
+            Subscribe();
         }
 
         private void Subscribe()
@@ -50,7 +47,6 @@ namespace TDS.Game.Servieces.Npc
         {
             Unsubscribe();
             _enemies = null;
-
         }
 
         private void Unsubscribe()

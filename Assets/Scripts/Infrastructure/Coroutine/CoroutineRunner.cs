@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TDS.Assets.Infrastructure.Coroutine
+namespace TDS.Assets.Infrastructure
 {
     public class CoroutineRunner:MonoBehaviour,ICoroutineRunner
     {

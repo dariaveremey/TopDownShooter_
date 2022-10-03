@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TDS.Game.Enemy
+namespace TDS.Assets.Game
 {
     public class EnemyAnimationMediator:MonoBehaviour
     {
@@ -10,6 +10,5 @@ namespace TDS.Game.Enemy
         {
             _enemyMeleeAttack.PerformDamage();
         }
-
     }
 }

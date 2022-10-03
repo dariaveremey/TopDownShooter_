@@ -1,7 +1,6 @@
 using System;
-using TDS.Assets.Infrastructure.ServicesContainer;
 
-namespace TDS.Assets.Infrastructure.SceneLoader
+namespace TDS.Assets.Infrastructure
 {
     public interface ISceneLoadService: IService
     {

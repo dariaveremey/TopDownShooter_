@@ -1,8 +1,7 @@
 using System;
-using TDS.Game.Objects;
 using UnityEngine;
 
-namespace TDS.Game.Player
+namespace TDS.Assets.Game
 {
     public class PlayerHp : MonoBehaviour, IHealth
     {

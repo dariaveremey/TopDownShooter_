@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TDS.Game.Player
+namespace TDS.Assets.Game
 {
     public class PlayerAnimation : MonoBehaviour
 

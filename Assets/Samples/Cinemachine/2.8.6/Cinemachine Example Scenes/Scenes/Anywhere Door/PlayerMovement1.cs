@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TDS.Game.InputServices;
+using TDS.Assets.Game;
 using UnityEngine;
 
 public class PlayerMovement1 : MonoBehaviour

@@ -1,7 +1,6 @@
-using TDS.Game.InputServices;
 using UnityEngine;
 
-namespace TDS.Game.Player
+namespace TDS.Assets.Game
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerMovement : MonoBehaviour
@@ -27,9 +26,9 @@ namespace TDS.Game.Player
 
         private void Update()
         {
-            if(_inputService==null)
+            if (_inputService == null)
                 return;
-            
+
             Move();
             Rotate();
         }
@@ -47,6 +46,5 @@ namespace TDS.Game.Player
         {
             _cachedTransform.up = _inputService.LookDirection;
         }
-    
     }
 }

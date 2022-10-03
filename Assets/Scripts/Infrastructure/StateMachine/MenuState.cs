@@ -1,9 +1,4 @@
-using TDS.Assets.Infrastructure.LoadingScreen;
-using TDS.Assets.Infrastructure.SceneLoader;
-using TDS.Assets.Infrastructure.ServicesContainer;
-using UnityEngine;
-
-namespace TDS.Assets.Infrastructure.StateMachine
+namespace TDS.Assets.Infrastructure
 {
     public class MenuState: BaseState
     {

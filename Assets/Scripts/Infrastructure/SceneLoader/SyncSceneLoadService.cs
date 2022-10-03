@@ -1,10 +1,8 @@
 using System;
 using System.Collections;
-using TDS.Assets.Infrastructure.Coroutine;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace TDS.Assets.Infrastructure.SceneLoader
+namespace TDS.Assets.Infrastructure
 {
     public class SyncSceneLoadService : ISceneLoadService
     {

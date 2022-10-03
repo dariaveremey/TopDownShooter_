@@ -1,4 +1,4 @@
-namespace TDS.Assets.Infrastructure.StateMachine
+namespace TDS.Assets.Infrastructure
 {
     public abstract class BaseState: BaseExitableState,IState
     {

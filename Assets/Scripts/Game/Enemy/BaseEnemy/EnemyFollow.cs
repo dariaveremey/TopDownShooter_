@@ -1,4 +1,4 @@
-namespace TDS.Game.Enemy
+namespace TDS.Assets.Game
 {
     public abstract class EnemyFollow : EnemyBehaviour
     {

@@ -1,7 +1,6 @@
 using System.Collections;
-using TDS.Assets.Infrastructure.ServicesContainer;
 
-namespace TDS.Assets.Infrastructure.Coroutine
+namespace TDS.Assets.Infrastructure
 {
     public interface ICoroutineRunner:IService
     {
