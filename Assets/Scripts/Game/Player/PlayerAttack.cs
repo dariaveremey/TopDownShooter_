@@ -20,8 +20,7 @@ namespace TDS.Assets.Game
 
         private Transform _cachedTransform;
         private float _timer;
-        private Bullet[] _bullets;
-        
+
         public event Action<int> OnChanged;
         public int BulletNumber { get; private set; } = 5;
 
@@ -33,9 +32,7 @@ namespace TDS.Assets.Game
         private void Update()
         {
             TickTimer();
-
-           // _bullets = LeanGameObjectPool.TryFindPoolByPrefab(_bulletPrefab,ref LeanPool);
-           _bullets = FindObjectsOfType<Bullet>();
+            
             if (CanAttack())
             {
                 Attack();
@@ -55,8 +52,9 @@ namespace TDS.Assets.Game
             }
 
             _playerAnimation.PlayShoot();
-            BulletNumber -= 1;
             _timer = _fireDelay;
+            LeanPool.Spawn(_bulletPrefab, _bulletSpawnPointTransform.position, _cachedTransform.rotation);
+            BulletNumber -= 1;
         }
 
         private void TickTimer()
@@ -66,14 +64,7 @@ namespace TDS.Assets.Game
 
         public void AddBulletsNumber(int number)
         {
-            BulletNumber = number;
-            if (BulletNumber < _bullets.Length)
-            {
-                for (int i = 0; i <BulletNumber -_bullets.Length ; i++)
-                {
-                    LeanPool.Spawn(_bulletPrefab, _bulletSpawnPointTransform.position, _cachedTransform.rotation);
-                }
-            }
+            BulletNumber += number;
             OnChanged?.Invoke(BulletNumber);
         }
 

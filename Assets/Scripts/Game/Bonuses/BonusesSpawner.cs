@@ -1,24 +1,21 @@
-using System.Collections;
 using Lean.Pool;
-using TDS.Assets.Game;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-namespace TDS.Game.Bonuses
+namespace TDS.Assets.Game.Bonuses
 {
     public class BonusesSpawner : MonoBehaviour
     {
-        [SerializeField] private BonusBase[] _bonusesPrefabArray;
-        [Range(0, 5)]
-        [SerializeField] private float _xMax;
-        [Range(0, 8)]
-        [SerializeField] private float _yMax;
+        [SerializeField] private BonusSpawnData[] _bonusesPrefabArray;
+        [SerializeField] private float _spawnRadius = 3.5f;
+        
         [SerializeField] private Transform _enemy;
 
         private float _chanceValue;
 
         private void Start()
         {
-            foreach (BonusBase bonus in _bonusesPrefabArray)
+            foreach (BonusSpawnData bonus in _bonusesPrefabArray)
             {
                 _chanceValue += bonus.SpawnChance;
             }
@@ -29,14 +26,14 @@ namespace TDS.Game.Bonuses
             float randomChance = Random.Range(0f, _chanceValue);
             float currentChance = 0;
 
-            foreach (BonusBase item in _bonusesPrefabArray)
+            foreach (BonusSpawnData item in _bonusesPrefabArray)
             {
                 currentChance += item.SpawnChance;
 
                 if (currentChance >= randomChance)
                 {
-                    Vector2 randomDirection = new Vector2(transform.position.x + _xMax, transform.position.y + _yMax);
-                    LeanPool.Spawn(item, randomDirection, Quaternion.identity);
+                    Vector2 randomSpawnPoint = Random.insideUnitCircle*_spawnRadius;
+                    LeanPool.Spawn(item.Bonus, randomSpawnPoint, Quaternion.identity);
                     break;
                 }
             }

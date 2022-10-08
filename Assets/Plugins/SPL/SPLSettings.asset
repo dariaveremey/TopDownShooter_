@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8af0024c8210d1e41b2726bbb1ac120d, type: 3}
   m_Name: SPLSettings
   m_EditorClassIdentifier: 
-  NeedOpenSceneOnStart: 0
+  NeedOpenSceneOnStart: 1
   StartScene:
-    Name: MenuScene
-    Index: 1
-    Path: Assets/Scenes/MenuScene.unity
-    GuidHex: 1518255fcbc57f74197a4a54d8828469
-  NeedOpenSceneOnStop: 0
+    Name: BootstrapScene
+    Index: 0
+    Path: Assets/Scenes/BootstrapScene.unity
+    GuidHex: 9d4e452cba2a5394b906448fff9fc437
+  NeedOpenSceneOnStop: 1
   StopScene:
     Name: GameScene
     Index: 2
@@ -37,7 +37,7 @@ MonoBehaviour:
     Index: 2
     Path: Assets/Scenes/GameScene.unity
     GuidHex: 2cda990e2423bbf4892e6590ba056729
-  - Name: Level2
+  - Name: 
     Index: 3
-    Path: Assets/Scenes/Level2.unity
+    Path: 
     GuidHex: c7f80d39cb1a21e4cb5a145593cbf4b1

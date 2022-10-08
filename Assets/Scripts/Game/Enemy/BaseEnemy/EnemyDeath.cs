@@ -1,4 +1,5 @@
 using System;
+using TDS.Assets.Game.Bonuses;
 using TDS.Game.Bonuses;
 using UnityEngine;
 
@@ -11,6 +12,9 @@ namespace TDS.Assets.Game
         [SerializeField] private EnemyMovement _enemyMovement;
         [SerializeField] private EnemyIdle _enemyIdle;
         [SerializeField] private EnemyStarter _enemyStarter;
+        [SerializeField] private Collider2D _enemyAttackAgro;
+        [SerializeField] private Collider2D _enemyFollowAgro;
+        
         
         [Header("Other")]
         [SerializeField] private AnimationBase _enemyAnimation;
@@ -46,8 +50,9 @@ namespace TDS.Assets.Game
             _enemyIdle.Deactivate();
             _enemyMoveToPlayer.Deactivate();
             _enemyMovement.Deactivate();
+            _enemyAttackAgro.enabled = false;
+            _enemyFollowAgro.enabled = false;
             _enemyStarter.enabled = false;
-            
         }
     }
 }

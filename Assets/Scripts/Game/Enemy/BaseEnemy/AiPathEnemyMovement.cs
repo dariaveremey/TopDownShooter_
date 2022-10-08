@@ -10,7 +10,6 @@ namespace TDS.Assets.Game
         [Header(nameof(AiPathEnemyMovement))]
         [SerializeField] private AIDestinationSetter _destinationSetter;
         [SerializeField] private AIBase _aiPath;
-        [SerializeField] private Transform _target;
         private IInputService _inputService;
 
         private void Start()
@@ -18,22 +17,18 @@ namespace TDS.Assets.Game
             _aiPath.maxSpeed = Spead;
         }
 
-        private void Update()
+        protected override void OnUpdate()
         {
+            base.OnUpdate();
+            
             if (_destinationSetter.target != null)
             {
                 SetAnimationSpeed(_aiPath.velocity.magnitude);
             }
         }
-        private void Rotate()
-        {
-            Vector3 difference = _target.position - transform.position;
-            transform.up = difference;
-        }
         public override void SetTarget(Transform target)
         {
             _destinationSetter.target = target;
-            Rotate();
             _aiPath.canMove = target != null;
 
             if (target == null)
